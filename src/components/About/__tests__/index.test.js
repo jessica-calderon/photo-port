@@ -1,20 +1,19 @@
-import React from "react";
-import { render, cleanup } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import About from "..";
-// jest afterEach global function
+// __tests__/About.test.js
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import About from '..';
+
 afterEach(cleanup);
-describe("About component", () => {
-  // First Test
-  // verify that the component is rendering
-  it("renders", () => {
+
+describe('About component renders', () => {
+  it('renders', () => {
     render(<About />);
   });
-  // Second test
-  it("matches snapshot DOM node structure", () => {
-    // asFragment returns a snapshot of the About component
+  
+  it('matches snapshot DOM node structure', () => {
     const { asFragment } = render(<About />);
-    // test & compare whether the expected and actual outcomes match
+    
     expect(asFragment()).toMatchSnapshot();
   });
-});
+})
